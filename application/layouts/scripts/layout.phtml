@@ -1,0 +1,86 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+<title>PHP-Day - SERPRO - Curitiba</title>
+<style>
+
+body, td, div, p
+{
+	font-family: Verdana, Arial, Helvetica, Sans-Serif;
+	font-size: 12px;
+}
+
+body
+{
+	background-color: #666699;
+	background-color: #9999CC;
+}
+
+#content
+{
+	background-color: #EEEEEE;
+	width: 778px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#content h1
+{
+	background-color: #666699;
+	color: white;
+	padding: 5px;
+}
+
+#content h2
+{
+	background-color: #666699;
+	color: white;
+	text-align: center;
+	padding: 5px;
+}
+
+#content h3
+{
+	background-color: #D3D3D3;
+	color: black;
+	padding: 5px;
+	border-bottom: 1px solid black;
+}
+
+#content p
+{
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+</style>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-22398422-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+    <?php echo $this->headTitle() ?>
+    <?php echo $this->headScript() ?>
+    <?php echo $this->headStyle() ?>
+
+</head>
+<body>
+<div id="content">
+
+
+<?php echo $this->layout()->content; ?>
+
+
+</div>
+</body>
+</html>
