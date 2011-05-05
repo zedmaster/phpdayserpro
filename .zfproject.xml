@@ -14,11 +14,28 @@
         <controllerFile controllerName="Error"/>
         <controllerFile controllerName="Minicurso">
           <actionMethod actionName="index"/>
+          <actionMethod actionName="cadastro"/>
+          <actionMethod actionName="key"/>
+        </controllerFile>
+        <controllerFile controllerName="User">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="cadastro"/>
+          <actionMethod actionName="reenviar"/>
         </controllerFile>
       </controllersDirectory>
-      <formsDirectory enabled="false"/>
+      <formsDirectory>
+        <formFile formName="Aluno"/>
+        <formFile formName="Minicurso"/>
+        <formFile formName="Key"/>
+        <formFile formName="Reenvio"/>
+      </formsDirectory>
       <layoutsDirectory enabled="false"/>
-      <modelsDirectory/>
+      <modelsDirectory>
+        <dbTableDirectory>
+          <dbTableFile dbTableName="Minicurso"/>
+          <dbTableFile dbTableName="Vminicurso"/>
+        </dbTableDirectory>
+      </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <viewsDirectory>
         <viewScriptsDirectory>
@@ -30,6 +47,21 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Minicurso">
             <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Minicurso">
+            <viewScriptFile forActionName="cadastro"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="cadastro"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Minicurso">
+            <viewScriptFile forActionName="key"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="reenviar"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
@@ -66,6 +98,7 @@
         <testApplicationBootstrapFile filesystemName="bootstrap.php"/>
         <testApplicationControllerDirectory>
           <testApplicationControllerFile filesystemName="MinicursoControllerTest.php"/>
+          <testApplicationControllerFile filesystemName="UserControllerTest.php"/>
         </testApplicationControllerDirectory>
       </testApplicationDirectory>
       <testLibraryDirectory>

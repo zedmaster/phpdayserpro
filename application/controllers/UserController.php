@@ -1,10 +1,7 @@
 <?php
 
-class MinicursoController extends Zend_Controller_Action
+class UserController extends Zend_Controller_Action
 {
-
-    public $nome_minicurso = null;
-    public $nome = null;
 
     public function init()
     {
@@ -18,23 +15,14 @@ class MinicursoController extends Zend_Controller_Action
 
     public function cadastroAction()
     {
-        $key = $this->getRequest()->getParam('key');
-        $form = new Application_Form_Minicurso();
-
-        try{
-            $this->_validaKey($key);
-            $this->view->nome = $this->nome;
-        }catch(Exception $e){
-            $this->view->form = $e->getMessage();
-            return;
-        }
-
+        $form = new Application_Form_Aluno();
 
         //** Rotina de tratamento do formulario
         if($this->getRequest()->isPost())
         {
             if ($form->isValid($_POST)) {
                 // success!
+                return $this->_forward('key','minicurso');
             } else {
                 // failure!
                 $form->populate($_POST); 
@@ -42,25 +30,18 @@ class MinicursoController extends Zend_Controller_Action
         }
 
         $this->view->form = $form;
-
+        $this->view->nome_minicurso = $this->nome_minicurso;
     }
 
-    protected function _validaKey($key)
+    public function reenviarAction()
     {
-        
-    }
-
-
-    public function keyAction()
-    {
-        $form = new Application_Form_Key();
+        $form = new Application_Form_Reenvio();
 
         //** Rotina de tratamento do formulario
         if($this->getRequest()->isPost())
         {
             if ($form->isValid($_POST)) {
                 // success!
-                return $this->_forward('cadastro');
             } else {
                 // failure!
                 $form->populate($_POST); 
