@@ -34,7 +34,9 @@
         <dbTableDirectory>
           <dbTableFile dbTableName="Minicurso"/>
           <dbTableFile dbTableName="Vminicurso"/>
+          <dbTableFile dbTableName="User"/>
         </dbTableDirectory>
+        <modelFile modelName="User"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <viewsDirectory>
