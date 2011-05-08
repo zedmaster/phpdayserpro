@@ -22,7 +22,7 @@ class Application_Model_User
         $date = new Zend_Date();
         $rows= array();
         $rows['dt_cadastro'] = $date->get("YYYY-MM-dd hh:mm:ss");
-        $rows['key'] = MD5($date->get("YYYY-MM-dd hh:mm:ss").$rows['email'].rand());
+        $rows['chave'] = MD5($date->get("YYYY-MM-dd hh:mm:ss").$rows['email'].rand());
 
         $cols = $this->tb->getCols();
         foreach($post as $key => $val)
@@ -33,8 +33,9 @@ class Application_Model_User
             }
         }
 
-        Zend_Debug::dump($rows);
+        //Zend_Debug::dump($rows);
         $this->tb->insert($rows);
+        $this->enviarEmail($rows);
         
     }
 
@@ -55,6 +56,11 @@ class Application_Model_User
         }
 
         return false;
+    }
+
+    public function enviarEmail($rows)
+    {
+        $email = new Zend_Mail();
     }
 }
 
