@@ -60,7 +60,21 @@ class Application_Model_User
 
     public function enviarEmail($rows)
     {
-        $email = new Zend_Mail();
+        $mail = new Zend_Mail();
+
+        $mail->setBodyText("Olá ".$rows['nome'].",\r".
+                           "Parabéns pelo seu cadastro no evento PHP-Day SERPRO.\r".
+                           "Utilize a sua chave para efetuar a inscrição nos mini cursos.\r\r".
+                           "Sua chave: ".$rows['chave']."\r\r".
+                           "Atenciosamente,\r".
+                           "Organização PHP-Day SERPRO\r".
+                           "http://serpro.phpday.com.br"
+        );
+        $mail->setFrom('zedmaster@gmail.com', 'PHP-Day SERPRO');
+        $mail->addTo($rows['email'], $rows['nome']);
+        //$mail->addTo("root"); // Testando o envio do email 
+        $mail->setSubject('Confirmação de cadastro no PHP-Day SERPRO');
+        $mail->send();
     }
 }
 
