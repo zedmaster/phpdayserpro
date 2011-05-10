@@ -25,14 +25,14 @@ class UserController extends Zend_Controller_Action
                 $user = new Application_Model_User();
                 if($user->isUserExist($_POST['email']))
                 {
-                   $form = "Usuário existente.<br/><a href=\"/minicurso/key\">Entre com a sua chave.</a>"; 
+                   $form = "Usuário existente.<br/><a href=\"/minicurso/\">Escolha um mini-curso.</a>"; 
                 }else{
                     try{
                         $user = new Application_Model_User();
                         $user->insert($_POST);
                         $form = "Cadastro realizado com sucesso.<br/>".
                                 "Favor confira no seu e-mail a chave de acesso.<br>".
-                                "<a href=\"/minicurso/key\">Entre com a sua chave.</a>";
+                                "<a href=\"/minicurso\">Escolha um mini-curso.</a>";
                     }catch(Exception $e){
                         $form = $e->getMessage();
                     }

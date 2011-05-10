@@ -1,5 +1,12 @@
 <h1>PHP-Day SERPRO</h1>
 
-<h2>Cadastro dos mini-cursos</h2>
+<h2>Cadastro do mini-curso: <?=$this->curso?></h2>
+
+<p><a href="/minicurso">Voltar</a></p>
+
 
 <?=$this->form?>
+
+<?php if(is_object($this->form)) {?>
+<p><a href="/user/cadastro">Não tenho cadastro.</a></p>
+<?php }?>

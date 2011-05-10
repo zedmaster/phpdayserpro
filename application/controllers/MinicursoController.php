@@ -18,49 +18,28 @@ class MinicursoController extends Zend_Controller_Action
 
     public function cadastroAction()
     {
-        $key = $this->getRequest()->getParam('key');
+        $curso = $this->getRequest()->getParam('id_minicurso');
+        $vcurso = new Core_Validate_Curso();
         $form = new Application_Form_Minicurso();
 
-        try{
-            $this->_validaKey($key);
-            $this->view->nome = $this->nome;
-        }catch(Exception $e){
-            $this->view->form = $e->getMessage();
-            return;
-        }
-
-
-        //** Rotina de tratamento do formulario
-        if($this->getRequest()->isPost())
-        {
-            if ($form->isValid($_POST)) {
-                // success!
-            } else {
-                // failure!
-                $form->populate($_POST); 
-            }
-        }
-
-        $this->view->form = $form;
-
-    }
-
-    protected function _validaKey($key)
-    {
         
-    }
 
 
-    public function keyAction()
-    {
-        $form = new Application_Form_Key();
+        if($vcurso->isValid($curso))
+        {
+            $this->view->curso= utf8_encode($vcurso->dados['nome_minicurso']);
+            $form->populate(array('id_minicurso'=>$curso)); 
+        }else{
+            return $this->_redirect('/minicurso');
+        }
+
 
         //** Rotina de tratamento do formulario
         if($this->getRequest()->isPost())
         {
             if ($form->isValid($_POST)) {
                 // success!
-                return $this->_forward('cadastro');
+                $form = "<strong>Inscrição Efetuada.</strong>";
             } else {
                 // failure!
                 $form->populate($_POST); 
@@ -68,7 +47,10 @@ class MinicursoController extends Zend_Controller_Action
         }
 
         $this->view->form = $form;
+
     }
+
+
 
 
 }
