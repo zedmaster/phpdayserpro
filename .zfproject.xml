@@ -35,8 +35,10 @@
           <dbTableFile dbTableName="Minicurso"/>
           <dbTableFile dbTableName="Vminicurso"/>
           <dbTableFile dbTableName="User"/>
+          <dbTableFile dbTableName="MinicursoAluno"/>
         </dbTableDirectory>
         <modelFile modelName="User"/>
+        <modelFile modelName="Minicurso"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <viewsDirectory>

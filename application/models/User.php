@@ -33,7 +33,6 @@ class Application_Model_User
             }
         }
 
-        //Zend_Debug::dump($rows);
         $this->tb->insert($rows);
         $this->enviarEmail($rows);
         
@@ -60,14 +59,14 @@ class Application_Model_User
 
     public function enviarEmail($rows)
     {
-        $mail = new Zend_Mail();
+        $mail = new Zend_Mail('utf-8');
 
-        $mail->setBodyText("Olá ".$rows['nome'].",\r".
-                           "Parabéns pelo seu cadastro no evento PHP-Day SERPRO.\r".
-                           "Utilize a sua chave para efetuar a inscrição nos mini cursos.\r\r".
-                           "Sua chave: ".$rows['chave']."\r\r".
-                           "Atenciosamente,\r".
-                           "Organização PHP-Day SERPRO\r".
+        $mail->setBodyText("Olá ".$rows['nome'].",\r\n".
+                           "Parabéns pelo seu cadastro no evento PHP-Day SERPRO.\r\n".
+                           "Utilize a sua chave para efetuar a inscrição nos mini cursos.\r\n\r\n".
+                           "Sua chave: ".$rows['chave']."\r\n\r\n".
+                           "Atenciosamente,\r\n".
+                           "Organização PHP-Day SERPRO\r\n".
                            "http://serpro.phpday.com.br"
         );
         $mail->setFrom('zedmaster@gmail.com', 'PHP-Day SERPRO');
