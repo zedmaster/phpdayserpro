@@ -75,5 +75,54 @@ class Application_Model_User
         $mail->setSubject('Confirmação de cadastro no PHP-Day SERPRO');
         $mail->send();
     }
+
+    /**
+     * Envia chave para o usuários
+     *
+     */
+    public function enviarChave($rows)
+    {
+
+        $mail = new Zend_Mail('utf-8');
+
+        $mail->setBodyText("Olá ".$rows['nome'].",\r\n".
+                           "Você solicitou uma nova chave.\r\n\r\n".
+                           "Sua nova chave: ".$rows['chave']."\r\n\r\n".
+                           "Atenciosamente,\r\n".
+                           "Organização PHP-Day SERPRO\r\n".
+                           "http://serpro.phpday.com.br"
+        );
+        $mail->setFrom('zedmaster@gmail.com', 'PHP-Day SERPRO');
+        $mail->addTo($rows['email'], $rows['nome']);
+        //$mail->addTo("root"); // Testando o envio do email 
+        $mail->setSubject('Sua nova chave do PHP-Day SERPRO');
+        $mail->send();
+    }
+
+
+    /**
+     * Gera uma nova chave para o usuários
+     *
+     */
+    public function novaChave($email)
+    {
+        $vchave = new Core_Validate_Email();
+        if($vchave->isValid($email))
+        {
+            $dados = $vchave->dados;
+            $tb = $this->tb;
+
+            $date = new Zend_Date();
+            $dados['chave'] = MD5($date->get("YYYY-MM-dd hh:mm:ss").$email.rand());
+
+            $where = $tb->getAdapter()->quoteInto('id_user = ?', $dados['id_user']);
+
+            $tb->update(array('chave' => $dados['chave']),$where);
+
+            return $dados;
+        }
+        
+        return false;
+    }
 }
 

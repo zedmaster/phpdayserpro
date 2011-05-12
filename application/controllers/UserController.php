@@ -13,6 +13,10 @@ class UserController extends Zend_Controller_Action
         // action body
     }
 
+    /**
+     * Cadastro de Usuarios
+     *
+     */
     public function cadastroAction()
     {
         $form = new Application_Form_Aluno();
@@ -47,6 +51,11 @@ class UserController extends Zend_Controller_Action
         $this->view->nome_minicurso = $this->nome_minicurso;
     }
 
+
+    /**
+     * Formulário de reenvio de chave
+     *
+     */
     public function reenviarAction()
     {
         $form = new Application_Form_Reenvio();
@@ -56,6 +65,14 @@ class UserController extends Zend_Controller_Action
         {
             if ($form->isValid($_POST)) {
                 // success!
+                try{
+                    $user = new Application_Model_User();
+                    $rows = $user->novaChave($_POST['email']);
+                    $user->enviarChave($rows);
+                    $form = "Confira no seu e-mail a nova chave.";
+                }catch(Exception $e){
+                    $this->view->msg = "Ocorreu um erro ao enviar, por favor tente novamente.";
+                }
             } else {
                 // failure!
                 $form->populate($_POST); 
