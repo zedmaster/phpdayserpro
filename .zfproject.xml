@@ -26,6 +26,9 @@
           <actionMethod actionName="index"/>
           <actionMethod actionName="login"/>
         </controllerFile>
+        <controllerFile controllerName="Palestra">
+          <actionMethod actionName="index"/>
+        </controllerFile>
       </controllersDirectory>
       <formsDirectory>
         <formFile formName="Aluno"/>
@@ -77,6 +80,9 @@
           <viewControllerScriptsDirectory forControllerName="Adm">
             <viewScriptFile forActionName="login"/>
           </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Palestra">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
         <viewFiltersDirectory enabled="false"/>
@@ -114,6 +120,7 @@
           <testApplicationControllerFile filesystemName="MinicursoControllerTest.php"/>
           <testApplicationControllerFile filesystemName="UserControllerTest.php"/>
           <testApplicationControllerFile filesystemName="AdmControllerTest.php"/>
+          <testApplicationControllerFile filesystemName="PalestraControllerTest.php"/>
         </testApplicationControllerDirectory>
       </testApplicationDirectory>
       <testLibraryDirectory>
