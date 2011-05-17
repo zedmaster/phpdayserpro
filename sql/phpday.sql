@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.1.54, for debian-linux-gnu (i686)
+-- MySQL dump 10.13  Distrib 5.1.49, for debian-linux-gnu (i686)
 --
 -- Host: localhost    Database: phpday
 -- ------------------------------------------------------
--- Server version	5.1.54-1ubuntu4
+-- Server version	5.1.49-1ubuntu8.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -168,6 +168,8 @@ SET character_set_client = utf8;
   `id_minicurso` int(11),
   `nome_minicurso` varchar(255),
   `descricao` text,
+  `hora` varchar(7),
+  `dia` varchar(5),
   `data_hora` datetime,
   `sala` varchar(32),
   `duracao` varchar(64),
@@ -205,12 +207,12 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET @saved_cs_client          = @@character_set_client */;
 /*!50001 SET @saved_cs_results         = @@character_set_results */;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = latin1 */;
-/*!50001 SET character_set_results     = latin1 */;
-/*!50001 SET collation_connection      = latin1_swedish_ci */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `v_minicurso` AS select `a`.`id_minicurso` AS `id_minicurso`,`a`.`nome_minicurso` AS `nome_minicurso`,`a`.`descricao` AS `descricao`,`a`.`data_hora` AS `data_hora`,`a`.`sala` AS `sala`,`a`.`duracao` AS `duracao`,`c`.`id_user` AS `id_user`,`c`.`nome` AS `nome`,(select count(0) from `minicurso_aluno` where (`minicurso_aluno`.`id_minicurso` = `a`.`id_minicurso`)) AS `alunos` from ((`minicurso` `a` join `minicurso_tutor` `b` on((`a`.`id_minicurso` = `b`.`id_minicurso`))) join `user` `c` on((`b`.`id_user` = `c`.`id_user`))) */;
+/*!50001 VIEW `v_minicurso` AS select `a`.`id_minicurso` AS `id_minicurso`,`a`.`nome_minicurso` AS `nome_minicurso`,`a`.`descricao` AS `descricao`,date_format(`a`.`data_hora`,'%H') AS `hora`,date_format(`a`.`data_hora`,'%d/%m') AS `dia`,`a`.`data_hora` AS `data_hora`,`a`.`sala` AS `sala`,`a`.`duracao` AS `duracao`,`c`.`id_user` AS `id_user`,`c`.`nome` AS `nome`,(select count(0) from `minicurso_aluno` where (`minicurso_aluno`.`id_minicurso` = `a`.`id_minicurso`)) AS `alunos` from ((`minicurso` `a` join `minicurso_tutor` `b` on((`a`.`id_minicurso` = `b`.`id_minicurso`))) join `user` `c` on((`b`.`id_user` = `c`.`id_user`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -224,4 +226,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2011-05-17  1:27:46
+-- Dump completed on 2011-05-17 12:05:28

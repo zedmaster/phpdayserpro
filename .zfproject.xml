@@ -32,6 +32,9 @@
         <controllerFile controllerName="Palestrante">
           <actionMethod actionName="index"/>
         </controllerFile>
+        <controllerFile controllerName="Tutor">
+          <actionMethod actionName="index"/>
+        </controllerFile>
       </controllersDirectory>
       <formsDirectory>
         <formFile formName="Aluno"/>
@@ -89,6 +92,9 @@
           <viewControllerScriptsDirectory forControllerName="Palestrante">
             <viewScriptFile forActionName="index"/>
           </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Tutor">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
         <viewFiltersDirectory enabled="false"/>
@@ -128,6 +134,7 @@
           <testApplicationControllerFile filesystemName="AdmControllerTest.php"/>
           <testApplicationControllerFile filesystemName="PalestraControllerTest.php"/>
           <testApplicationControllerFile filesystemName="PalestranteControllerTest.php"/>
+          <testApplicationControllerFile filesystemName="TutorControllerTest.php"/>
         </testApplicationControllerDirectory>
       </testApplicationDirectory>
       <testLibraryDirectory>

@@ -23,7 +23,7 @@ class App_View_Helper_Palestras extends Zend_View_Helper_Abstract
             $html .= "  <ul>";
             $html .= "      <li>Horário: ".$data->get('dd/MM/YYYY hh:mm')."h</li>";
             $html .= "      <li>Duração: 50min</li>";
-            $html .= "      <li>Palestrante: ".$val->nome."</li>";
+            $html .= "      <li>Palestrante: <a href=\"/palestrante#{$val->id_user}\">{$val->nome}</a></li>";
             $html .= "      <li>Descrição:<p>".$val->descricao."</p></li>";
             $html .= "  </ul>";
         }

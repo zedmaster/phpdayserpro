@@ -1,9 +1,9 @@
 <?php
 
-class App_View_Helper_MinicursoGrade extends Zend_View_Helper_Abstract
+class App_View_Helper_Minicurso extends Zend_View_Helper_Abstract
 {
 
-    public function minicursoGrade()
+    public function minicurso()
     {
         $html = "";
 
@@ -31,7 +31,7 @@ class App_View_Helper_MinicursoGrade extends Zend_View_Helper_Abstract
             $html .= "      <li>Horário: ".$data->get('dd/MM/YYYY hh:mm')."h</li>";
             $html .= "      <li>Duração: ".$val->duracao."h</li>";
             $html .= "      <li>Sala ".$val->sala."</li>";
-            $html .= "      <li>Palestrante: ".$val->nome."</li>";
+            $html .= "      <li>Palestrante: <a href=\"/tutor#{$val->id_user}\">".$val->nome."</a></li>";
             $html .= "      <li>Descrição:<p>".$val->descricao."</p></li>";
             $html .= "  </ul>";
         }
