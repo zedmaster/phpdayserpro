@@ -19,7 +19,7 @@ class App_View_Helper_Palestras extends Zend_View_Helper_Abstract
         {
             $data = new Zend_Date($val->data_hora);
 
-            $html .= "<h3>".$val->nome_palestra."</h3>";
+            $html .= "<h3 id=\"{$val->id_palestra}\">".$val->nome_palestra."</h3>";
             $html .= "  <ul>";
             $html .= "      <li>Horário: ".$data->get('dd/MM/YYYY hh:mm')."h</li>";
             $html .= "      <li>Duração: 50min</li>";

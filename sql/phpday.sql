@@ -134,8 +134,27 @@ CREATE TABLE `user` (
   `estado` varchar(2) DEFAULT NULL,
   `chave` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_user`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Temporary table structure for view `v_grade_palestra`
+--
+
+DROP TABLE IF EXISTS `v_grade_palestra`;
+/*!50001 DROP VIEW IF EXISTS `v_grade_palestra`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE TABLE `v_grade_palestra` (
+  `data_hora` datetime,
+  `id_palestra` int(11),
+  `id_user` int(11),
+  `dia` varchar(5),
+  `hora` varchar(7),
+  `nome_palestra` varchar(255),
+  `nome` varchar(255)
+) ENGINE=MyISAM */;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Temporary table structure for view `v_minicurso`
@@ -157,6 +176,25 @@ SET character_set_client = utf8;
   `alunos` bigint(21)
 ) ENGINE=MyISAM */;
 SET character_set_client = @saved_cs_client;
+
+--
+-- Final view structure for view `v_grade_palestra`
+--
+
+/*!50001 DROP TABLE IF EXISTS `v_grade_palestra`*/;
+/*!50001 DROP VIEW IF EXISTS `v_grade_palestra`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `v_grade_palestra` AS select `a`.`data_hora` AS `data_hora`,`a`.`id_palestra` AS `id_palestra`,`palestra_palestrante`.`id_user` AS `id_user`,date_format(`a`.`data_hora`,'%d/%m') AS `dia`,date_format(`a`.`data_hora`,'%H') AS `hora`,`a`.`nome_palestra` AS `nome_palestra`,`c`.`nome` AS `nome` from ((`palestra` `a` join `palestra_palestrante` on((`a`.`id_palestra` = `palestra_palestrante`.`id_palestra`))) join `user` `c` on((`palestra_palestrante`.`id_user` = `c`.`id_user`))) order by `a`.`data_hora` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
 
 --
 -- Final view structure for view `v_minicurso`
@@ -186,4 +224,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2011-05-08  1:17:51
+-- Dump completed on 2011-05-17  1:27:46
