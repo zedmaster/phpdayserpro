@@ -16,6 +16,7 @@ class UserController extends Zend_Controller_Action
     /**
      * Cadastro de Usuarios
      *
+     *
      */
     public function cadastroAction()
     {
@@ -51,9 +52,9 @@ class UserController extends Zend_Controller_Action
         $this->view->nome_minicurso = $this->nome_minicurso;
     }
 
-
     /**
      * Formulário de reenvio de chave
+     *
      *
      */
     public function reenviarAction()
@@ -82,8 +83,35 @@ class UserController extends Zend_Controller_Action
         $this->view->form = $form;
     }
 
+    public function inscricaoAction()
+    {
+         $form = new Application_Form_Inscricao();
+
+        //** Rotina de tratamento do formulario
+        if($this->getRequest()->isPost())
+        {
+            if ($form->isValid($_POST)) {
+                // success!
+                try{
+                    $inscricao = new Application_Model_Inscricao();
+                    $rows = $inscricao->insert($_POST['chave']);
+                    $form = "Inscrição realizada com sucesso.";
+                }catch(Exception $e){
+                    $this->view->msg = $e->getMessage();
+                }
+            } else {
+                // failure!
+                $form->populate($_POST); 
+            }
+        }
+
+        $this->view->form = $form;
+    }
+
 
 }
+
+
 
 
 

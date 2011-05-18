@@ -21,6 +21,7 @@
           <actionMethod actionName="index"/>
           <actionMethod actionName="cadastro"/>
           <actionMethod actionName="reenviar"/>
+          <actionMethod actionName="inscricao"/>
         </controllerFile>
         <controllerFile controllerName="Adm">
           <actionMethod actionName="index"/>
@@ -41,6 +42,7 @@
         <formFile formName="Minicurso"/>
         <formFile formName="Key"/>
         <formFile formName="Reenvio"/>
+        <formFile formName="Inscricao"/>
       </formsDirectory>
       <layoutsDirectory enabled="false"/>
       <modelsDirectory>
@@ -49,9 +51,11 @@
           <dbTableFile dbTableName="Vminicurso"/>
           <dbTableFile dbTableName="User"/>
           <dbTableFile dbTableName="MinicursoAluno"/>
+          <dbTableFile dbTableName="Inscricao"/>
         </dbTableDirectory>
         <modelFile modelName="User"/>
         <modelFile modelName="Minicurso"/>
+        <modelFile modelName="Inscricao"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <viewsDirectory>
@@ -94,6 +98,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Tutor">
             <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="inscricao"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
