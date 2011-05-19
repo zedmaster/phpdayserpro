@@ -10,6 +10,7 @@
       <controllersDirectory>
         <controllerFile controllerName="Index">
           <actionMethod actionName="index"/>
+          <actionMethod actionName="local"/>
         </controllerFile>
         <controllerFile controllerName="Error"/>
         <controllerFile controllerName="Minicurso">
@@ -34,6 +35,9 @@
           <actionMethod actionName="index"/>
         </controllerFile>
         <controllerFile controllerName="Tutor">
+          <actionMethod actionName="index"/>
+        </controllerFile>
+        <controllerFile controllerName="Local">
           <actionMethod actionName="index"/>
         </controllerFile>
       </controllersDirectory>
@@ -102,6 +106,12 @@
           <viewControllerScriptsDirectory forControllerName="User">
             <viewScriptFile forActionName="inscricao"/>
           </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Local">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="local"/>
+          </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
         <viewFiltersDirectory enabled="false"/>
@@ -142,6 +152,7 @@
           <testApplicationControllerFile filesystemName="PalestraControllerTest.php"/>
           <testApplicationControllerFile filesystemName="PalestranteControllerTest.php"/>
           <testApplicationControllerFile filesystemName="TutorControllerTest.php"/>
+          <testApplicationControllerFile filesystemName="LocalControllerTest.php"/>
         </testApplicationControllerDirectory>
       </testApplicationDirectory>
       <testLibraryDirectory>
