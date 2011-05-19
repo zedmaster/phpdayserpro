@@ -53,6 +53,67 @@ body
 	padding-right: 15px;
 }
 
+
+
+#nav-menu 
+{
+    background-color: #666699;
+    display: table;
+    width: 100%;
+}
+
+#nav-menu ul
+{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+} 
+
+#nav-menu li
+{
+    float: left;
+    margin: 0 0.15em;
+} 
+
+#nav-menu li a
+{
+    background: url(background.gif) #666699 bottom left repeat-x;
+    height: 2em;
+    line-height: 2em;
+    float: left;
+    width: 9em;
+    display: block;
+    border: 0.0em solid #dcdce9;
+    font-size: 1em;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-decoration: none;
+    text-align: center;
+} 
+
+#nav-menu li a:hover
+{
+    background-color: #EEEEEE;
+    color: #666699;
+}
+
+.titulo
+{
+    background-color: #666699;
+    color: white;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    display: block;
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 0.67em;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0.67em;
+}
+
 </style>
 
 <script type="text/javascript">
@@ -76,6 +137,24 @@ body
 </head>
 <body>
 <div id="content">
+
+<div id="nav-menu">
+    <ul>
+        <dd><span class="titulo">PHP-Day SERPRO Curitiba</span></dd>
+        <li><a href="/">Início</a></li>
+        <li><a href="/palestra">Palestras</a></li>
+        <li><a href="/minicurso">Mini-Cursos</a></li>
+        <li><a href="/user/inscricao">Inscrição</a></li>
+        <li><a href="/index/local">Local</a></li>
+    </ul>
+</div> 
+
+<p>
+Data: <strong>31/05/2011</strong> e <strong>01/06/2011</strong> 08:00h - 18:00<br/>
+Local: SERPRO - Curitiba<br/>
+</p>
+
+
 
 
 <?php echo $this->layout()->content; ?>

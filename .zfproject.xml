@@ -10,6 +10,7 @@
       <controllersDirectory>
         <controllerFile controllerName="Index">
           <actionMethod actionName="index"/>
+          <actionMethod actionName="local"/>
         </controllerFile>
         <controllerFile controllerName="Error"/>
         <controllerFile controllerName="Minicurso">
@@ -21,6 +22,7 @@
           <actionMethod actionName="index"/>
           <actionMethod actionName="cadastro"/>
           <actionMethod actionName="reenviar"/>
+          <actionMethod actionName="inscricao"/>
         </controllerFile>
         <controllerFile controllerName="Adm">
           <actionMethod actionName="index"/>
@@ -35,12 +37,16 @@
         <controllerFile controllerName="Tutor">
           <actionMethod actionName="index"/>
         </controllerFile>
+        <controllerFile controllerName="Local">
+          <actionMethod actionName="index"/>
+        </controllerFile>
       </controllersDirectory>
       <formsDirectory>
         <formFile formName="Aluno"/>
         <formFile formName="Minicurso"/>
         <formFile formName="Key"/>
         <formFile formName="Reenvio"/>
+        <formFile formName="Inscricao"/>
       </formsDirectory>
       <layoutsDirectory enabled="false"/>
       <modelsDirectory>
@@ -49,9 +55,11 @@
           <dbTableFile dbTableName="Vminicurso"/>
           <dbTableFile dbTableName="User"/>
           <dbTableFile dbTableName="MinicursoAluno"/>
+          <dbTableFile dbTableName="Inscricao"/>
         </dbTableDirectory>
         <modelFile modelName="User"/>
         <modelFile modelName="Minicurso"/>
+        <modelFile modelName="Inscricao"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <viewsDirectory>
@@ -95,6 +103,15 @@
           <viewControllerScriptsDirectory forControllerName="Tutor">
             <viewScriptFile forActionName="index"/>
           </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="inscricao"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Local">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="local"/>
+          </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
         <viewFiltersDirectory enabled="false"/>
@@ -135,6 +152,7 @@
           <testApplicationControllerFile filesystemName="PalestraControllerTest.php"/>
           <testApplicationControllerFile filesystemName="PalestranteControllerTest.php"/>
           <testApplicationControllerFile filesystemName="TutorControllerTest.php"/>
+          <testApplicationControllerFile filesystemName="LocalControllerTest.php"/>
         </testApplicationControllerDirectory>
       </testApplicationDirectory>
       <testLibraryDirectory>
