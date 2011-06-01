@@ -9,7 +9,8 @@ class AdmController extends Zend_Controller_Action
         if($_SESSION['adm'] == "" && $request["action"]!="login")
         {
             return $this->_redirect('/adm/login');
-        }
+        } 
+        
     }
 
     public function indexAction()
@@ -22,7 +23,7 @@ class AdmController extends Zend_Controller_Action
         $config = array(
                 'accept_schemes' => 'basic',
                 'realm'          => 'Adm',
-                'nonce_timeout'  => 3600,
+                'nonce_timeout'  => 3600
                 );
 
         $adapter = new Zend_Auth_Adapter_Http($config);
@@ -47,10 +48,13 @@ class AdmController extends Zend_Controller_Action
             $_SESSION["adm"] = "adm";
             return $this->_redirect('/adm/index');
         }
+        
+    }
+
+    public function emailAction()
+    {
+        // action body
     }
 
 
 }
-
-
-
